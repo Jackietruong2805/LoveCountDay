@@ -1,11 +1,20 @@
 <script setup>
 // import LoveBg from "../public/img/LoveBg.avif"
-let date = new Date();
-let Hours = date.getHours();
-let minutes = date.getMinutes();
-let seconds = date.getSeconds();
+import {ref} from "vue";
+let day = "";
+let month = "";
+let year = "";
+
+const inputRef = ref("");
+const handleStart = ()=>{
+  const startDate = inputRef.value.value;
+  day = startDate.slice(-2);
+  month = startDate.slice(5, 7);
+  year = startDate.slice(0, 4);
+  console.log(year);
+};
 setInterval(()=>{
-  
+    
 }, 1000);
 
 </script>
@@ -16,11 +25,11 @@ setInterval(()=>{
             <section>
                 <h1 class="title">Nhập vào Ngày bắt đầu yêu</h1>
                 <div class="set-date">
-                    <input class="timer-start" id="start" type="date" min="2021-12-31">
+                    <input ref="inputRef" class="timer-start" id="start" type="date" min="2021-12-31">
                 </div>
             </section>
             <section>
-                <button class="start-button">Bắt đầu</button>
+                <button ref="buttonRef" @click="handleStart" class="start-button">Bắt đầu</button>
             </section>
         </div>
         <div class="timer container">
@@ -100,12 +109,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.start-button{
+.start-button, .start-button:hover{
   padding: 15px 30px;
   border-radius: 20px;
   border: none;
   background: green;
   color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
 }
 </style>
