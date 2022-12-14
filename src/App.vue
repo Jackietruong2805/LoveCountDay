@@ -1,27 +1,33 @@
 <script setup>
-// import LoveBg from "../public/img/LoveBg.avif"
 import {ref} from "vue";
-let day = "";
-let month = "";
-let year = "";
+let day = ref("");
+let month = ref("");
+let year = ref("");
 
 const inputRef = ref("");
+let startDate = '';
+let isStarting = ref(true);
 const handleStart = ()=>{
-  const startDate = inputRef.value.value;
-  day = startDate.slice(-2);
-  month = startDate.slice(5, 7);
-  year = startDate.slice(0, 4);
-  console.log(year);
+  startDate = inputRef.value.value;
+  isStarting.value = false;
 };
+
 setInterval(()=>{
-    
-}, 1000);
+  if(!isStarting.value){
+    let now = new Date();
+    year.value = +now.getFullYear() - +startDate.slice(0, 4);
+    month.value = +now.getMonth() + 1 - +startDate.slice(5, 7);
+    day.value = +now.getDate() - +startDate.slice(-2);
+    console.log(day.value, month.value, year.value);
+  }
+  }, 1000);
+
 
 </script>
 
 <template>
     <div class="wrapper">
-        <div class="container set-time">
+        <div class="container set-time" v-if="isStarting">
             <section>
                 <h1 class="title">Nhập vào Ngày bắt đầu yêu</h1>
                 <div class="set-date">
@@ -32,10 +38,12 @@ setInterval(()=>{
                 <button ref="buttonRef" @click="handleStart" class="start-button">Bắt đầu</button>
             </section>
         </div>
-        <div class="timer container">
-            <div class="timer-item"></div>
-            <div class="timer-item"></div>
-            <div class="timer-item"></div>
+        <div class="timer container" v-else>
+            <span class="timer-item">{{day}}</span>
+            <span>:</span>
+            <span class="timer-item">{{month}}</span>
+            <span>:</span>
+            <span class="timer-item">{{year}}</span>
         </div>
     </div>
 </template>
@@ -68,9 +76,12 @@ setInterval(()=>{
 }
 
 .timer{
+  max-width: 900px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 110px;
+  font-weight: bold;
 }
 
 .title{
