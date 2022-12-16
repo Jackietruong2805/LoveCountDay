@@ -75,38 +75,38 @@ const handleReset = ()=>{
                 <button @click="handleStart" class="start-button">Bắt đầu</button>
             </section>
     </div>
-        <div class="container timer" v-else>
-          <div class="timer-him">
-            <div class="timer-image timer-imageLeft"></div>
-            <span class="name name-hao">Anh Hào</span>
+      <div class="container timer" v-else>
+        <div class="timer-him">
+          <div class="timer-image timer-imageLeft"></div>
+          <span class="name name-hao">Anh Hào</span>
+        </div>
+        <div class="timer-counter">
+          <div class="timer-borderOutside">
+                <div class="timer-borderInside">
+                    <span class="timer-content">{{dayMonthYear.content == day && dayMonthYear.title == 'day' 
+                    ? day : dayMonthYear.content == month && dayMonthYear.title == 'month'
+                    ? month : dayMonthYear.content == year && dayMonthYear.title == 'year' ? year : day}}</span>
+                    <span class="timer-title">{{dayMonthYear.content == day && dayMonthYear.title == 'day' 
+                    ? 'Ngày' : dayMonthYear.content == month && dayMonthYear.title == 'month'
+                    ? 'Tháng' : dayMonthYear.content == year && dayMonthYear.title == 'year' ? 'Năm' : "Ngày"}}</span>
+                </div>                
           </div>
-          <div class="timer-counter">
-            <div class="timer-borderOutside">
-                  <div class="timer-borderInside">
-                      <span class="timer-content">{{dayMonthYear.content == day && dayMonthYear.title == 'day' 
-                      ? day : dayMonthYear.content == month && dayMonthYear.title == 'month'
-                      ? month : dayMonthYear.content == year && dayMonthYear.title == 'year' ? year : day}}</span>
-                      <span class="timer-title">{{dayMonthYear.content == day && dayMonthYear.title == 'day' 
-                      ? 'Ngày' : dayMonthYear.content == month && dayMonthYear.title == 'month'
-                      ? 'Tháng' : dayMonthYear.content == year && dayMonthYear.title == 'year' ? 'Năm' : "Ngày"}}</span>
-                  </div>                
-            </div>
-            <div class="button">
-                <button @touchend="handleDate(day, 'day')" @click="handleDate(day, 'day')" class="button-days">Days</button>
-                <button @touchend="handleDate(month, 'month')" @click="handleDate(month, 'month')" class="button-months">Months</button>
-                <button @touchend="handleDate(year, 'year')" @click="handleDate(year, 'year')" class="button-years">Years</button>
-            </div>
-            <div class="reset">
-                <button @touchend="handleReset" @click="handleReset" class="button-reset">
-                      Reset
-                </button>
-            </div>
+          <div class="button">
+              <button @touchend="handleDate(day, 'day')" @click="handleDate(day, 'day')" class="button-days">Days</button>
+              <button @touchend="handleDate(month, 'month')" @click="handleDate(month, 'month')" class="button-months">Months</button>
+              <button @touchend="handleDate(year, 'year')" @click="handleDate(year, 'year')" class="button-years">Years</button>
           </div>
-          <div class="timer-her">
-            <div class="timer-image timer-imageRight"></div>
-            <span class="name name-nhi">Em bé <i class="fa fa-heart"></i></span>
+          <div class="reset">
+              <button @touchend="handleReset" @click="handleReset" class="button-reset">
+                    Reset
+              </button>
           </div>
         </div>
+        <div class="timer-her">
+          <div class="timer-image timer-imageRight"></div>
+          <span class="name name-nhi">Em bé <i class="fa fa-heart"></i></span>
+        </div>
+      </div>
         
 </template>
 
