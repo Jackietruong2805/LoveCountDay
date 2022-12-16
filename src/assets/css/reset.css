@@ -6,7 +6,7 @@
 * {
   margin: 0;
   padding: 0;
-  font: inherit;
+  box-sizing: border-box;
 }
 img,
 picture,
@@ -16,7 +16,7 @@ video {
   max-width: 100%;
 }
 body {
-  min-height: 100vh;
+  height: 100vh;
 }
 #app{
     height: 100%;

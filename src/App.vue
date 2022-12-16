@@ -12,14 +12,13 @@ import TheTimer from "./components/TheTimer.vue"
 <style>
 .wrapper {
   max-width: 1600px;
-  background-image: url("../img/love3Bg.avif");
+  background-image: url("../img/sea.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   text-align: center;
-  opacity: 0.9;
 }
 
 .container{
