@@ -21,15 +21,9 @@ import TheTimer from "./components/TheTimer.vue"
 }
 
 .container{
+  max-width: 3000px;
   margin: 0 auto;
   padding: 15px 0;
-
-  @media (width >= 1400px){
-    max-width: 1320px;
-  }
-  @media (width >= 768px){
-    max-width: 720px;
-  }
 }
 
 </style>
