@@ -61,6 +61,8 @@ const handleReset = ()=>{
 </script>
 
 
+
+
 <template>
     <div class="container set-time" v-if="isStarting">
             <section>
@@ -70,13 +72,13 @@ const handleReset = ()=>{
                 </div>
             </section>
             <section>
-                <button ref="buttonRef" @click="handleStart" class="start-button">Bắt đầu</button>
+                <button @click="handleStart" class="start-button">Bắt đầu</button>
             </section>
     </div>
         <div class="container timer" v-else>
           <div class="timer-him">
             <div class="timer-image timer-imageLeft"></div>
-            <input type="file" title="" id="image-input-left" class="custom-file-input input-left">
+            <span class="name name-hao">Anh Hào</span>
           </div>
           <div class="timer-counter">
             <div class="timer-borderOutside">
@@ -102,7 +104,7 @@ const handleReset = ()=>{
           </div>
           <div class="timer-her">
             <div class="timer-image timer-imageRight"></div>
-            <input type="file" title="" class="custom-file-input input-right">
+            <span class="name name-nhi">Em bé <i class="fa fa-heart"></i></span>
           </div>
         </div>
         
@@ -117,6 +119,24 @@ const handleReset = ()=>{
   flex-direction: column;
   height: 100%;
   gap: 30px 0;
+}
+
+.name{
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 30px;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 20px;
+}
+.name-hao{
+  border: 3px solid greenyellow;
+}
+.name-nhi{
+  border: 3px solid violet;
+}
+
+.name-nhi i{
+  color: red;
 }
 
 .timer{
@@ -163,7 +183,7 @@ const handleReset = ()=>{
 .timer-him, .timer-her{
   display: flex;
   flex-direction: column;
-  margin-top: 110px;
+  margin-top: 100px;
   gap: 40px 0;
 }
 
@@ -171,15 +191,16 @@ const handleReset = ()=>{
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background-image: url('../../img/LoveBg.avif');
   background-position: center;
   background-size: cover;
 }
 .timer-imageLeft{
+  background-image: url('../../img/hao.jpg');
   border: 3px solid greenyellow;
 }
 .timer-imageRight{
   border: 3px solid violet;
+  background-image: url('../../img/nhi.jpg');
 }
 
 
